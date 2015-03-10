@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<portlet-app xmlns='http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd' version='2.0'>
+	<portlet>
+		<description>View the visits of web sites</description>
+		<portlet-name>ConsultorGoogleAnalytics</portlet-name>
+		<display-name>View Visits - Google Analytics</display-name>
+		<portlet-class>main.java.es.uniovi.innova.VisitsPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Consultor From Google Analytics</title>
+			<short-title>Consultor of Visits Web Sites</short-title>
+		</portlet-info>
+	</portlet>
+</portlet-app>
