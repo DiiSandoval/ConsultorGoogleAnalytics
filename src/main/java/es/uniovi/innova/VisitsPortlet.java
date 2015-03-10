@@ -18,6 +18,9 @@ import main.java.es.uniovi.innova.services.ga.implementation.util.DateFormat;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.WebKeys;
+
 public class VisitsPortlet extends GenericPortlet {
 
 	private IGAService gaServiceNewData;
@@ -34,14 +37,19 @@ public class VisitsPortlet extends GenericPortlet {
 		gaServiceOldData = factoryService.getServiceGoogleAnalyticsOldData();
 		portalService = factoryService.getServicePortales();
 
+		
+		
 	}
 
 	@Override
 	public void doView(RenderRequest request, RenderResponse response)
 			throws PortletException, IOException {
-		;
+		
+		ThemeDisplay themeDisplay = 
+			     (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
+		themeDisplay.getScopeGroupId();
+		
 		gaServiceNewData.setUA("UA-376062-58");
-		request.setAttribute("mapPortal", portalService.getPortales());
 		request.setAttribute("numVisitasDay",
 				gaServiceNewData.numOfVisitsByDay(6, 1, 2015));
 		request.setAttribute("numVisitasMonth",
@@ -79,9 +87,6 @@ public class VisitsPortlet extends GenericPortlet {
 					dayEnd, monthEnd, yearEnd));
 			actionrequest.setAttribute("mapPages",gaService.getPageVisits(dayStart, monthStart, yearStart,
 					dayEnd, monthEnd, yearEnd));
-		
-		
-	
 	}
 
 	protected void include(String path, RenderRequest renderRequest,

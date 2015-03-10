@@ -4,4 +4,5 @@ import java.util.Map;
 
 public interface IPortalesService {
 	Map<String, String> getPortales();
+	Map<String, String> getPortalesScope();
 }

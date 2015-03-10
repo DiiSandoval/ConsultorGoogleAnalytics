@@ -30,4 +30,22 @@ public class APILiferayPortalesDAO implements IPortalesService {
 		return mapPortal;
 	}
 
+	@Override
+	public Map<String, String> getPortalesScope() {
+		Map<String, String> mapPortal = new HashMap<String, String>();
+		List<Group> listaGrupos;
+		try {
+			listaGrupos = GroupLocalServiceUtil.getGroups(0,GroupLocalServiceUtil.getGroupsCount());
+			for (Group group: listaGrupos) {
+				String name = group.getDescriptiveName();
+				String idGoogleAnalytics = group.getTypeSettingsProperties().getProperty("googleAnalyticsId");
+				if(idGoogleAnalytics!=null)
+					mapPortal.put(name, idGoogleAnalytics);
+			}
+		} catch (SystemException e) {
+			e.printStackTrace();
+		}
+		return mapPortal;
+	}
+
 }

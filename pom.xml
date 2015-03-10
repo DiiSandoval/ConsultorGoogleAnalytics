@@ -5,7 +5,7 @@
 	<artifactId>ConsultorGoogleAnalytics</artifactId>
 	<version>1</version>
 	<packaging>war</packaging>
-	<name>ViewVisitsAnalytics</name>
+	<name>ConsultorGoogleAnalytics</name>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
