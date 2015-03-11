@@ -26,9 +26,9 @@ public class GAnalyticsServiceNewData extends GAnalyticsService {
 	 */
 	@Override
 	@Cacheable(value = "actualVisits", key = "#root.methodName.concat(#day.toString()).concat(#month.toString()).concat(#year.toString())")
-	public int numOfVisitsByDay(int day, int month, int year) {
+	public int numOfVisitsByDay(String id,int day, int month, int year) {
 		System.out.println("> Caché variable - Numero de visitas en un día");
-		return super.numOfVisitsByDay(day, month, year);
+		return super.numOfVisitsByDay(id,day, month, year);
 	}
 
 	/**
@@ -41,9 +41,9 @@ public class GAnalyticsServiceNewData extends GAnalyticsService {
 	 */
 	@Override
 	@Cacheable(value = "actualVisits", key = "#root.methodName.concat(#month.toString()).concat(#year.toString())")
-	public int numOfVisitsByMonth(int month, int year) {
+	public int numOfVisitsByMonth(String id,int month, int year) {
 		System.out.println("> Caché variable - Numero de visitas en un mes");
-		return super.numOfVisitsByMonth(month, year);
+		return super.numOfVisitsByMonth(id,month, year);
 	}
 	/**
 	 * Number of visits during a specific year
@@ -53,9 +53,9 @@ public class GAnalyticsServiceNewData extends GAnalyticsService {
 	 */
 	@Override
 	@Cacheable(value = "actualVisits", key = "#root.methodName.concat(#year.toString())")
-	public int numOfVisitsByYear(int year) {
+	public int numOfVisitsByYear(String id,int year) {
 		System.out.println("> Caché variable - Numero de visitas en un año");
-		return super.numOfVisitsByYear(year);
+		return super.numOfVisitsByYear(id,year);
 	}
 
 	/* (non-Javadoc)
@@ -64,11 +64,11 @@ public class GAnalyticsServiceNewData extends GAnalyticsService {
 	@Override
 	@Cacheable(value = "actualVisits", key = "#root.methodName.concat(#day_before.toString()).concat(#month_before.toString())"
 			+ ".concat(#year_before.toString()).concat(#day_after.toString()).concat(#month_after.toString()).concat(#year_after.toString())")
-	public int numOfVisitsBetweenTwoDates(int day_before, int month_before,
+	public int numOfVisitsBetweenTwoDates(String id,int day_before, int month_before,
 			int year_before, int day_after, int month_after, int year_after) {
 		System.out
 				.println("> Caché variable - Numero de visitas entre dos fechas");
-		return super.numOfVisitsBetweenTwoDates(day_before, month_before,
+		return super.numOfVisitsBetweenTwoDates(id,day_before, month_before,
 				year_before, day_after, month_after, year_after);
 
 	}
@@ -79,11 +79,11 @@ public class GAnalyticsServiceNewData extends GAnalyticsService {
 	@Override
 	@Cacheable(value = "actualVisits", key = "#root.methodName.concat(#day_before.toString()).concat(#month_before.toString())"
 			+ ".concat(#year_before.toString()).concat(#day_after.toString()).concat(#month_after.toString()).concat(#year_after.toString())")
-	public Map<String, String> getVisitsByCountry(int day_before,
+	public Map<String, String> getVisitsByCountry(String id,int day_before,
 			int month_before, int year_before, int day_after, int month_after,
 			int year_after) {
 		System.out.println("> Caché variable - Numero de visitas por país");
-		return super.getVisitsByCountry(day_before, month_before, year_before,
+		return super.getVisitsByCountry(id,day_before, month_before, year_before,
 				day_after, month_after, year_after);
 
 	}
@@ -94,12 +94,12 @@ public class GAnalyticsServiceNewData extends GAnalyticsService {
 	@Override
 	@Cacheable(value = "actualVisits", key = "#root.methodName.concat(#day_before.toString()).concat(#month_before.toString())"
 			+ ".concat(#year_before.toString()).concat(#day_after.toString()).concat(#month_after.toString()).concat(#year_after.toString())")
-	public Map<String, String> getVisitsBySSOO(int day_before,
+	public Map<String, String> getVisitsBySSOO(String id,int day_before,
 			int month_before, int year_before, int day_after, int month_after,
 			int year_after) {
 		System.out
 				.println("> Caché variable - Numero de visitas por sistema operativo");
-		return super.getVisitsBySSOO(day_before, month_before, year_before,
+		return super.getVisitsBySSOO(id, day_before, month_before, year_before,
 				day_after, month_after, year_after);
 
 	}
@@ -110,10 +110,10 @@ public class GAnalyticsServiceNewData extends GAnalyticsService {
 	@Override
 	@Cacheable(value = "actualVisits", key = "#root.methodName.concat(#day_before.toString()).concat(#month_before.toString())"
 			+ ".concat(#year_before.toString()).concat(#day_after.toString()).concat(#month_after.toString()).concat(#year_after.toString())")
-	public Map<String, String> getPageVisits(int day_before, int month_before,
+	public Map<String, String> getPageVisits(String id,int day_before, int month_before,
 			int year_before, int day_after, int month_after, int year_after) {
 		System.out.println("> Caché variable - Numero de visitas por pagina");
-		return super.getPageVisits(day_before, month_before, year_before,
+		return super.getPageVisits(id, day_before, month_before, year_before,
 				day_after, month_after, year_after);
 
 	}

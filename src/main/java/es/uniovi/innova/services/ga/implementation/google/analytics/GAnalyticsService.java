@@ -80,7 +80,7 @@ public abstract class GAnalyticsService implements IGAService {
 	 *            - the concrete year
 	 */
 	@Override
-	public int numOfVisitsByDay(int day, int month, int year) {
+	public int numOfVisitsByDay(String id, int day, int month, int year) {
 		String startDate = year + "-" + DateFormat.getStringNumber(month) + "-"
 				+ DateFormat.getStringNumber(day);
 		String endDate = startDate;
@@ -96,7 +96,7 @@ public abstract class GAnalyticsService implements IGAService {
 	 *            - the concrete year
 	 */
 	@Override
-	public int numOfVisitsByMonth(int month, int year) {
+	public int numOfVisitsByMonth(String id, int month, int year) {
 		String startDate = year + "-" + DateFormat.getStringNumber(month) + "-01";
 		String endDate = year
 				+ "-"
@@ -114,14 +114,14 @@ public abstract class GAnalyticsService implements IGAService {
 	 *            - the year to obtain the total visits
 	 */
 	@Override
-	public int numOfVisitsByYear(int year) {
+	public int numOfVisitsByYear(String id, int year) {
 		String startDate = year + "-01-01";
 		String endDate = year + "-12-31";
 		return calculateVisits(startDate, endDate);
 	}
 
 	@Override
-	public int numOfVisitsBetweenTwoDates(int day_before, int month_before,
+	public int numOfVisitsBetweenTwoDates(String id, int day_before, int month_before,
 			int year_before, int day_after, int month_after, int year_after) {
 
 		String startDate = year_before + "-" + DateFormat.getStringNumber(month_before)
@@ -135,7 +135,7 @@ public abstract class GAnalyticsService implements IGAService {
 
 
 	@Override
-	public Map<String, String> getVisitsByCountry(int day_before,
+	public Map<String, String> getVisitsByCountry(String id, int day_before,
 			int month_before, int year_before, int day_after, int month_after,
 			int year_after) {
 
@@ -149,7 +149,7 @@ public abstract class GAnalyticsService implements IGAService {
 	}
 
 	@Override
-	public Map<String, String> getVisitsBySSOO(int day_before,
+	public Map<String, String> getVisitsBySSOO(String id, int day_before,
 			int month_before, int year_before, int day_after, int month_after,
 			int year_after) {
 
@@ -163,7 +163,7 @@ public abstract class GAnalyticsService implements IGAService {
 	}
 
 	@Override
-	public Map<String, String> getPageVisits(int day_before, int month_before,
+	public Map<String, String> getPageVisits(String id, int day_before, int month_before,
 			int year_before, int day_after, int month_after, int year_after) {
 
 		String startDate = year_before + "-" + DateFormat.getStringNumber(month_before)

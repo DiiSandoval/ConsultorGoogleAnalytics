@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.cache.annotation.Cacheable;
+
 import com.liferay.portal.SystemException;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.service.GroupLocalServiceUtil;
@@ -14,6 +16,7 @@ import main.java.es.uniovi.innova.services.ga.IPortalesService;
 public class APILiferayPortalesDAO implements IPortalesService {
 
 	@Override
+	@Cacheable(value = "portalCache", key = "#root.methodName")
 	public Map<String, String> getPortales() {
 		Map<String, String> mapPortal = new HashMap<String, String>();
 		List<Group> listaGrupos;
@@ -35,6 +38,7 @@ public class APILiferayPortalesDAO implements IPortalesService {
 	public Map<String, String> getPortalesScope(ThemeDisplay themeDisplay) {
 		Map<String, String> mapPortal = new HashMap<String, String>();
 		Group group = themeDisplay.getScopeGroup();
+		mapPortal.put("name", group.getDescriptiveName());
 		mapPortal.put("idGoogleAnalytics", group.getTypeSettingsProperties().getProperty("googleAnalyticsId"));
 		return mapPortal;
 	}

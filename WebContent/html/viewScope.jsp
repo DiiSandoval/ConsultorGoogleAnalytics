@@ -4,10 +4,6 @@
 
 <portlet:defineObjects />
 <%
-	Map<String, String> map = (Map<String, String>) renderRequest
-	.getAttribute("mapPortal");
-%>
-<%
 	Map<String, String> mapCountry = (Map<String, String>) renderRequest
 	.getAttribute("mapCountry");
 %>
@@ -32,35 +28,14 @@
 	.getAttribute("numVisitasYear").toString();
 %>
 
-ESTAS EN EL VIEW.JSP
+ESTAS EN EL VIEWSCOPE.JSP
 <div id="prueba">
-	<h3>Portales</h3>
-	<ul>
-		<%
-			for (String portal : map.keySet()) {
-		%>
-		<li><%=portal%> - <%=map.get(portal)%></li>
-		<li>Numero de visitas en el dia 6/1/2015: <%=numVisitasDay%></li>
-		<li>Numero de visitas en el mes 12/2014: <%=numVisitasMonth%></li>
-		<li>Numero de visitas en el año 2015: <%=numVisitasYear%></li>
-		<%
-			}
-		%>
-	</ul>
-	<fieldset class="date">
-		Select a portal: <select>
-			<%
-				for (String portal : map.keySet()) {
-			%>
-			<option value="<%=portal%>"><%=portal%></option>
-			<%
-				}
-			%>
-		</select>
-	</fieldset>
+	
+	<b>Nombre del portal:</b>
+			<%=renderRequest.getAttribute("namePortal")%>
 	<form action="<portlet:actionURL></portlet:actionURL>" method="post">
 		<fieldset class="date">
-			<legend>Numero de visitas por intervalo</legend>
+			<legend>Consultor de google analytics</legend>
 			<legend>
 				<u>Start Date</u>
 			</legend>
@@ -119,6 +94,7 @@ ESTAS EN EL VIEW.JSP
 		<option value="<%=renderRequest.getAttribute("numVisitasIntervalo")%>">Numero
 			de visitas:
 			<%=renderRequest.getAttribute("numVisitasIntervalo")%> visitas.
+			
 		</option>
 		<%
 			}
@@ -240,7 +216,6 @@ ESTAS EN EL VIEW.JSP
 			}
 		%>
 	</body>
-
 
 
 </div>
