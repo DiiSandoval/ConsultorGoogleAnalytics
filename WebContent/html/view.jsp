@@ -3,6 +3,7 @@
 <%@ page import="java.util.*"%>
 
 <portlet:defineObjects />
+<c:if test="${empty mensaje}">
 <%
 	Map<String, String> mapCountry = (Map<String, String>) renderRequest
 	.getAttribute("mapCountry");
@@ -27,15 +28,14 @@
 	String numVisitasYear = renderRequest
 	.getAttribute("numVisitasYear").toString();
 %>
-
+</c:if>
 
 <div id="prueba">
-	<h2>Consultor de google analytics</h2>
 	
 	
 	<form action="<portlet:actionURL></portlet:actionURL>" method="post">
 		<fieldset class="date">
-			<legend>Numero de visitas por intervalo</legend>
+			<legend>Consultor de google analytics</legend>
 			<legend>
 				<u>Start Date</u>
 			</legend>
@@ -86,7 +86,9 @@
 			</r>
 		</fieldset>
 
-
+<c:if test="${empty mensaje}">
+			${carritoFinal}
+			
 		<%
 			if (renderRequest.getAttribute("numVisitasIntervalo") != null) {
 				System.out.println(renderRequest.getAttribute("numVisitasIntervalo"));
@@ -99,10 +101,13 @@
 			}
 		%>
 
-
+</c:if>
+<c:if test='${not empty "${mensaje}"}'>
+			${mensaje}
+	</c:if>
 
 	</form>
-
+<c:if test="${empty mensaje}">
   <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
     
           <div id="ex0"></div>
@@ -197,9 +202,12 @@
         
       }
     </script>
+    </c:if>
 	<body>
 		<!--Div that will hold the pie chart-->
-
+<c:if test='${empty "${mensaje}"}'>
+			${mensaje}
+	
 		<%
 			if (mapSO != null) {
 		%>
@@ -214,6 +222,7 @@
 		<%
 			}
 		%>
+		</c:if>
 	</body>
 
 
