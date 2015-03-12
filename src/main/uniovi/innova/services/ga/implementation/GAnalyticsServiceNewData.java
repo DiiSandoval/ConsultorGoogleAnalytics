@@ -39,6 +39,7 @@ public class GAnalyticsServiceNewData extends GAnalyticsService {
 	}
 
 	/**
+	 * 
 	 * Number of visits during a specific month
 	 * 
 	 * @param month
