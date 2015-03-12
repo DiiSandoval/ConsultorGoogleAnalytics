@@ -11,8 +11,12 @@ import javax.portlet.PortletRequestDispatcher;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import main.uniovi.innova.services.ga.IGAService;
 import main.uniovi.innova.services.ga.IPortalesService;
+import main.uniovi.innova.services.ga.implementation.portales.APILiferayPortalesDAO;
 import main.uniovi.innova.services.ga.implementation.util.DateFormat;
 
 import com.liferay.portal.theme.ThemeDisplay;
@@ -21,6 +25,9 @@ import com.liferay.portal.util.WebKeys;
 public class VisitsScopePortlet extends VisitsPortlet {
 
 	private Map<String, String> mapPortal = new HashMap<String, String>();
+	
+	final static Logger log = LoggerFactory
+			.getLogger(APILiferayPortalesDAO.class);
 
 	/* (non-Javadoc)
 	 * @see main.java.es.uniovi.innova.VisitsPortlet#doView(javax.portlet.RenderRequest, javax.portlet.RenderResponse)
@@ -110,7 +117,7 @@ public class VisitsScopePortlet extends VisitsPortlet {
 				.getRequestDispatcher(path);
 
 		if (portletRequestDispatcher == null) {
-			System.err.println(path + " is not a valid include");
+			log.error(path + " is not a valid include");
 		} else {
 			portletRequestDispatcher.include(renderRequest, renderResponse);
 		}
