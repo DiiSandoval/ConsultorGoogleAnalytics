@@ -12,6 +12,17 @@
 		<instanceable>false</instanceable>
 		<header-portlet-css>/css/base.css</header-portlet-css>
 	</portlet>
+	<portlet>
+		<portlet-name>ViewVisistAnalytics</portlet-name>
+		<control-panel-entry-category>portal</control-panel-entry-category>
+		<control-panel-entry-weight>15.0</control-panel-entry-weight>
+		<preferences-company-wide>true</preferences-company-wide>
+		<preferences-unique-per-layout>false</preferences-unique-per-layout>
+		<use-default-template>true</use-default-template>
+		<restore-current-view>true</restore-current-view>	
+		<instanceable>false</instanceable>
+		<header-portlet-css>/css/base.css</header-portlet-css>
+	</portlet>
 	
 	<role-mapper>
 		<role-name>administrator</role-name>

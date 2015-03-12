@@ -13,18 +13,18 @@
 
 	
 
-	<bean id="factory" class="main.java.es.uniovi.innova.factories.Factory">
+	<bean id="factory" class="main.uniovi.innova.factories.Factory">
 		<property name="serviceGoogleAnalyticsNewData" ref="newData"></property>
 		<property name="serviceGoogleAnalyticsOldData" ref="oldData"></property>
 		<property name="servicePortales" ref="aPILiferayPortalesDAO"></property>
 	</bean>
 
 	<bean id="aPILiferayPortalesDAO"
-		class="main.java.es.uniovi.innova.services.ga.implementation.portales.APILiferayPortalesDAO"></bean> 
+		class="main.uniovi.innova.services.ga.implementation.portales.APILiferayPortalesDAO"></bean> 
 	<bean id="newData"
-		class="main.java.es.uniovi.innova.services.ga.implementation.GAnalyticsServiceNewData"></bean>
+		class="main.uniovi.innova.services.ga.implementation.GAnalyticsServiceNewData"></bean>
 	<bean id="oldData"
-		class="main.java.es.uniovi.innova.services.ga.implementation.GAnalyticsServiceOldData"></bean>
+		class="main.uniovi.innova.services.ga.implementation.GAnalyticsServiceOldData"></bean>
 
 	
 	<cache:annotation-driven />

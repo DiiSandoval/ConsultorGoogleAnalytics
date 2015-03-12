@@ -4,7 +4,26 @@
 		<description>View the visits of web sites</description>
 		<portlet-name>ConsultorGoogleAnalytics</portlet-name>
 		<display-name>View Visits - Google Analytics</display-name>
-		<portlet-class>main.java.es.uniovi.innova.VisitsPortlet</portlet-class>
+		<portlet-class>main.uniovi.innova.VisitsScopePortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/viewScope.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Consultor From Google Analytics</title>
+			<short-title>Consultor of Visits Web Sites</short-title>
+		</portlet-info>
+	</portlet>
+	<portlet>
+		<description>View the visits of web sites</description>
+		<portlet-name>ViewVisistAnalytics</portlet-name>
+		<display-name>View Visits - Google Analytics</display-name>
+		<portlet-class>main.uniovi.innova.VisitsPortlet</portlet-class>
 		<init-param>
 			<name>view-jsp</name>
 			<value>/html/view.jsp</value>
@@ -15,8 +34,8 @@
 			<portlet-mode>VIEW</portlet-mode>
 		</supports>
 		<portlet-info>
-			<title>Consultor From Google Analytics</title>
-			<short-title>Consultor of Visits Web Sites</short-title>
+			<title>Visits From Google Analytics</title>
+			<short-title>View Visits Web Sites</short-title>
 		</portlet-info>
 	</portlet>
 </portlet-app>

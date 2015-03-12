@@ -4,4 +4,7 @@
 	<category name="content">
 		<portlet id="ConsultorGoogleAnalytics"/>
 	</category>
+	<category name="portal">
+		<portlet id="ViewVisistAnalytics"/>
+	</category>
 </display>
