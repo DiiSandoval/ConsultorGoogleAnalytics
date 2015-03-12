@@ -6,33 +6,17 @@
 <%
 	Map<String, String> mapCountry = (Map<String, String>) renderRequest
 	.getAttribute("mapCountry");
-%>
-<%
 	Map<String, String> mapSO = (Map<String, String>) renderRequest
 	.getAttribute("mapSO");
-%>
-<%
 	Map<String, String> mapPages = (Map<String, String>) renderRequest
 	.getAttribute("mapPages");
 %>
-<%
-	String numVisitasDay = renderRequest.getAttribute("numVisitasDay")
-	.toString();
-%>
-<%
-	String numVisitasMonth = renderRequest.getAttribute(
-	"numVisitasMonth").toString();
-%>
-<%
-	String numVisitasYear = renderRequest
-	.getAttribute("numVisitasYear").toString();
-%>
-
-ESTAS EN EL VIEWSCOPE.JSP
 <div id="prueba">
 	
+	<fieldset class="date">
 	<b>Nombre del portal:</b>
 			<%=renderRequest.getAttribute("namePortal")%>
+			</fieldset>
 	<form action="<portlet:actionURL></portlet:actionURL>" method="post">
 		<fieldset class="date">
 			<legend>Consultor de google analytics</legend>

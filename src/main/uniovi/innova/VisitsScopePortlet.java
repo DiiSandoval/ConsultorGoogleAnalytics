@@ -36,15 +36,7 @@ public class VisitsScopePortlet extends VisitsPortlet {
 		
 		String id = mapPortal.get("idGoogleAnalytics");
 		gaServiceNewData.setUA(id);
-		request.setAttribute("numVisitasDay",
-				gaServiceNewData.numOfVisitsByDay(id, 6, 1, 2015));
-		request.setAttribute("numVisitasDay",
-				gaServiceNewData.numOfVisitsByDay(id, 6, 1, 2015));
 		request.setAttribute("namePortal", mapPortal.get("name"));
-		request.setAttribute("numVisitasMonth",
-				gaServiceNewData.numOfVisitsByMonth(id, 12, 2014));
-		request.setAttribute("numVisitasYear",
-				gaServiceNewData.numOfVisitsByYear(id, 2015));
 		include("/html/viewScope.jsp", request, response);
 
 	}

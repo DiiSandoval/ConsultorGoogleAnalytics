@@ -52,13 +52,6 @@ public class VisitsPortlet extends GenericPortlet {
 		String id = "UA-376062-58";
 		gaServiceNewData.setUA(id);
 		request.setAttribute("mapPortal", portalService.getPortales());
-		request.setAttribute("numVisitasDay",
-				gaServiceNewData.numOfVisitsByDay(id, 6, 1, 2015));
-		request.setAttribute("numVisitasMonth",
-				gaServiceNewData.numOfVisitsByMonth(id, 12, 2014));
-		request.setAttribute("numVisitasYear",
-				gaServiceNewData.numOfVisitsByYear(id, 2015));
-
 		include("/html/view.jsp", request, response);
 	}
 
